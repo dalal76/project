@@ -77,7 +77,18 @@ tdata <- read_excel("teachers_data.xlsx")
 The first thing we need to do is to tidy the data by changing the Arabic column names to English names that you could easily use in your code. There should be no space in the column name. For example, change the arabic text Al-Sanah to $year$. I have provided you with some English names you could use in the tasks below. You could use Google Translate to find the right English words for the rest of the variables. Ensure that there is no space for variables with two words. For instance administrative regions should be written as administrative_regions.
 
 ```{r tidy_data}
-#Add some code
+tdata = rename(tdata,  administrative_regions = "المنطقة الإدارية")
+tdata = rename(tdata,  school_level = "المرحلة")
+tdata = rename(tdata,  authority = "السلطة")
+tdata = rename(tdata,  Office_of_Education = "مكتب التربية")
+tdata = rename(tdata,  sex = "الجنس")
+tdata = rename(tdata,  School_type = "نوع المدرسة")
+tdata = rename(tdata,  Type_of_education = "نوع التعليم")
+tdata = rename(tdata,  school_system = "نظام الدراسة")
+tdata = rename(tdata,  Saudi_teacher = "معلم سعودي")
+tdata = rename(tdata,  Non_Saudi_teacher = "معلم غير سعودي")
+tdata = rename(tdata,  Teachers = "معلمين جملة")
+tdata = rename(tdata,  the_year = "السنة")
 ```
 
 Team Leader should *Knit, commit, and push changes to GitHub with an appropriate commit message. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
