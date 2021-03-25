@@ -1,7 +1,7 @@
 ---
 title: "Analysis of Teachers' Recruitment in Saudi Arabia Between 1437 and 1440"
 subtitle: "Data from Saudi Open Data Office"
-author: "team number 2"
+author: "team number2"
 date: "6 March 2021"
 output: html_document
 ---
