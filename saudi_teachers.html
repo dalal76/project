@@ -9,7 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="team number2" />
+<meta name="author" content="Musab Isah" />
 
 <meta name="date" content="2021-03-06" />
 
@@ -167,15 +167,20 @@ pre code {
 
 <h1 class="title toc-ignore">Analysis of Teachers’ Recruitment in Saudi Arabia Between 1437 and 1440</h1>
 <h3 class="subtitle">Data from Saudi Open Data Office</h3>
-<h4 class="author">team number2</h4>
+<h4 class="author">Musab Isah</h4>
 <h4 class="date">6 March 2021</h4>
 
 </div>
 
 
-<p>Group Number:(2)</p>
+<p>Group Number: 2</p>
 <p>Group Members’ Names (IDs):</p>
-<p>1.dalal salman (2201003144) – Team Leader 2. dana mohammed (2201000498) – Member 1 3. raghad fahad (2201003185) – Member 2 4. ryam radi (2201001476)|ruyof mohammed(2201003185)– Member 3</p>
+<ol style="list-style-type: decimal">
+<li>dalal salman(2201003144) – Team Leader</li>
+<li>dana mohammed(2201000498) – Member 1</li>
+<li>raghad fahad(2201003185) – Member 2</li>
+<li>ryam radi(2201001476)/ruyof mohammed(2201003185) – Member 3</li>
+</ol>
 <p>The purpose of this project explore the data on teachers recruitment at different levels of schooling (with the exception of higher education, such as universities) between 1437 and 1440 Hijri in Saudi Arabia. The data is sourced from Saudi Open Data Office and you are expected to use the provided data to answer the questions below.</p>
 <p>Remember that this is a collaborative work and each member must participate in completing the project.</p>
 <div id="cloning-the-project-file" class="section level2">
@@ -218,7 +223,7 @@ pre code {
 <pre><code>## Warning: package &#39;readxl&#39; was built under R version 4.0.4</code></pre>
 <p>We then need to load the data from the MS Excel (.xlsx) file, named teachers_data.xlsx, to the R environment for processing.</p>
 <p><em>Note: Only Team Leader should run the code below</em></p>
-<pre class="r"><code>tdata &lt;- read_excel(&quot;teachers_data.xlsx&quot;)</code></pre>
+<pre class="rload_data"><code>tdata &lt;- read_excel(&quot;teachers_data.xlsx&quot;)</code></pre>
 </div>
 </div>
 <div id="wherever-you-see-the-text-add-some-code-it-means-you-should-delete-the-comment-and-add-your-code-for-the-task." class="section level1">
@@ -230,7 +235,7 @@ pre code {
 <h2>Task 1</h2>
 <p></p>
 <p>The first thing we need to do is to tidy the data by changing the Arabic column names to English names that you could easily use in your code. There should be no space in the column name. For example, change the arabic text Al-Sanah to <span class="math inline">\(year\)</span>. I have provided you with some English names you could use in the tasks below. You could use Google Translate to find the right English words for the rest of the variables. Ensure that there is no space for variables with two words. For instance administrative regions should be written as administrative_regions.</p>
-<pre class="rtidy_data"><code>tdata = rename(tdata,   administrative_regions = &quot;المنطقة الإدارية&quot;)
+<pre class="rtidy_data"><code>tdata = rename(tdata,  administrative_regions = &quot;المنطقة الإدارية&quot;)
 tdata = rename(tdata,  school_level = &quot;المرحلة&quot;)
 tdata = rename(tdata,  authority = &quot;السلطة&quot;)
 tdata = rename(tdata,  Office_of_Education = &quot;مكتب التربية&quot;)
