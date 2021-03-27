@@ -257,13 +257,17 @@ tdata = rename(tdata,  the_year = &quot;السنة&quot;)</code></pre>
 <ol style="list-style-type: lower-alpha">
 <li>What are the different administrative_regions (Al-Mandaqah Al-idariyyah) found in the data?</li>
 </ol>
-<pre class="r"><code>#Add some code</code></pre>
-<p>Comments about your answer:</p>
+<pre class="radmin_regions"><code>tdata %&gt;% count(administrative_regions) %&gt;% arrange(desc(n))
+tdata %&gt;% count(administrative_regions) %&gt;% arrange(n)</code></pre>
+<p>Comments about your answer: the biggest regions (alryad=31617) and the samllest one(alhadood alshamalya=2072), the most densely populated region is the one with the most employment of teachers (alryad)</p>
 <ol start="2" style="list-style-type: lower-alpha">
 <li>Based on your knowledge of the administrative regions in Saudi Arabia, is there any region that has not recruited any teacher during the period under review (1437 - 1440 Hijri)? List the Saudi regions shown in the data.</li>
 </ol>
-<pre class="r"><code>#Add some code</code></pre>
-<p>Comments about your answer:</p>
+<pre class="rnot_recruited_admin_regions"><code>tdata %&gt;% filter(the_year&gt;=1437 ,the_year&lt;=1440, Teachers==0)%&gt;% count(administrative_regions)
+tdata %&gt;% filter(the_year&gt;=1437,the_year&lt;=1440,Non_Saudi_teacher==0)%&gt;%
+  count(administrative_regions)%&gt;%arrange(desc(n))
+tdata %&gt;% filter(the_year&gt;=1437 ,the_year&lt;=1440,Saudi_teacher==0)%&gt;%count(administrative_regions)%&gt;%arrange(desc(n))</code></pre>
+<p>Comments about your answer: from ( 1437 to 1440) at least (1) saudi or non saudi teacher recruited from admin regions and the most regions recruited at least (1) teacher (alryad)</p>
 <p>The Team Member should <em>Knit, commit, and push changes to GitHub with an appropriate commit message.</em></p>
 <p></p>
 </div>
