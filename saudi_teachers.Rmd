@@ -12,7 +12,7 @@ Group Members' Names (IDs):
 
 1. dalal salman(2201003144)   -- Team Leader
 2. dana mohammed(2201000498)  -- Member 1
-3. raghad fahad(2201003185)   -- Member 2
+3. raghad fahad(2201003165)   -- Member 2
 4. ryam radi(2201001476)/ruyof mohammed(2201003185) -- Member 3
 
 
@@ -109,14 +109,18 @@ tdata %>% count(administrative_regions) %>% arrange(n)
 ```
 
 Comments about your answer:
+
 the biggest regions (alryad=31617) and the samllest one(alhadood alshamalya=2072), the most densely populated region is the one with the most employment of teachers (alryad)
 
 (b) Based on your knowledge of the administrative regions in Saudi Arabia, is there any region that has not recruited any teacher during the period under review (1437 - 1440 Hijri)? List the Saudi regions shown in the data.
 
 ```{rnot_recruited_admin_regions}
+
 tdata %>% filter(the_year>=1437 ,the_year<=1440, Teachers==0)%>% count(administrative_regions)
+
 tdata %>% filter(the_year>=1437,the_year<=1440,Non_Saudi_teacher==0)%>%
   count(administrative_regions)%>%arrange(desc(n))
+
 tdata %>% filter(the_year>=1437 ,the_year<=1440,Saudi_teacher==0)%>%count(administrative_regions)%>%arrange(desc(n))
 ```
 
@@ -134,20 +138,26 @@ The Next Team Member should *Pull the changes made by Member 1 before proceeding
 
 (a) Saudi Arabian education is divided into different stages/levels (Al-Marhala), list the different levels showed in the data in descDEADLINE: ENDing order of frequency. (4 points)
 
-```{r study_levels}
-#Add some code
+```{rstudy_levels}
+tdata%>%arrange(desc(levels_school))
 ```
 
 Comments about your answer:
+
+that we have here 140438 ( int) (n) of levels_school.
 
 (b) Which level recruit the most teachers? (4 points)
 
 
-```{r most_teachers}
-#Add some code
+```{rmost_teachers}
+tdata%>%count(levels_school)%>%arrange(desc(n))
 ```
 
 Comments about your answer:
+
+The largest level in recruitment is the primary schools and the lowest level is the continue learning, so we  we 
+should educate and qualify specialized teachers at the primary stage because it is the most imoprtant stage in teams
+of employment requirements and also the most important in students' lives.
 
 The Team Member should *Knit, commit, and push changes to GitHub with an appropriate commit message.*
 
@@ -155,27 +165,32 @@ The Next Team member should *Pull the changes made by Team Leader before proceed
 
 (c) Plot the graph of region versus number of **Saudi** teachers recruited over the period. (4 points)
 
-```{r plot_admin_regions_saudi}
-#Add some code
+```{rplot_admin_regions_saudi}
+ggplot (data=tdata, aes (x=administrative_regions, y= Saudi_teacher)) + geom_bar (stat="identity")
 ```
 
 Comments about your answer:
+The most number of saudi teachers has been employed  in ( riyad ) and The fewest number of saudi teachers have been 
+employed in northern borders.
 
 (d) Plot the graph of region versus number of **Non-Saudi** teachers recruited over the period. (4 points)
 
-```{r plot_admin_regions_non-saudi}
-#Add some code
+```{rplot_admin_regions_non-saudi}
+ggplot (data=tdata, aes (x=administrative_regions, y= non_Saudi_teacher)) + geom_bar (stat="identity")
 ```
 
 Comments about your answer:
+The most number of non saudi teachers has been employed  in ( riyad ) and The fewest number of saudi teachers have been employed in Albahaa
 
 (e) Plot the graph of region versus number of **all teachers** recruited over the period. (4 points)
 
-```{r plot_admin_regions_all}
-#Add some code
+```{rplot_admin_regions_all}
+ggplot (data=tdata, aes (x=administrative_regions, y= total_saudi_teachers)) + geom_bar (stat="identity")
 ```
 
 Comments about your answer:
+The most number of non or saudi teachers has been employed  in ( riyad ) and The fewest number of saudi teachers 
+have been employed  in northern borders
 
 The Team Member should *Knit, commit, and push changes to GitHub with an appropriate commit message.*
 

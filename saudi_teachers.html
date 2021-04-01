@@ -178,7 +178,7 @@ pre code {
 <ol style="list-style-type: decimal">
 <li>dalal salman(2201003144) – Team Leader</li>
 <li>dana mohammed(2201000498) – Member 1</li>
-<li>raghad fahad(2201003185) – Member 2</li>
+<li>raghad fahad(2201003165) – Member 2</li>
 <li>ryam radi(2201001476)/ruyof mohammed(2201003185) – Member 3</li>
 </ol>
 <p>The purpose of this project explore the data on teachers recruitment at different levels of schooling (with the exception of higher education, such as universities) between 1437 and 1440 Hijri in Saudi Arabia. The data is sourced from Saudi Open Data Office and you are expected to use the provided data to answer the questions below.</p>
@@ -259,13 +259,17 @@ tdata = rename(tdata,  the_year = &quot;السنة&quot;)</code></pre>
 </ol>
 <pre class="radmin_regions"><code>tdata %&gt;% count(administrative_regions) %&gt;% arrange(desc(n))
 tdata %&gt;% count(administrative_regions) %&gt;% arrange(n)</code></pre>
-<p>Comments about your answer: the biggest regions (alryad=31617) and the samllest one(alhadood alshamalya=2072), the most densely populated region is the one with the most employment of teachers (alryad)</p>
+<p>Comments about your answer:</p>
+<p>the biggest regions (alryad=31617) and the samllest one(alhadood alshamalya=2072), the most densely populated region is the one with the most employment of teachers (alryad)</p>
 <ol start="2" style="list-style-type: lower-alpha">
 <li>Based on your knowledge of the administrative regions in Saudi Arabia, is there any region that has not recruited any teacher during the period under review (1437 - 1440 Hijri)? List the Saudi regions shown in the data.</li>
 </ol>
-<pre class="rnot_recruited_admin_regions"><code>tdata %&gt;% filter(the_year&gt;=1437 ,the_year&lt;=1440, Teachers==0)%&gt;% count(administrative_regions)
+<pre class="rnot_recruited_admin_regions"><code>
+tdata %&gt;% filter(the_year&gt;=1437 ,the_year&lt;=1440, Teachers==0)%&gt;% count(administrative_regions)
+
 tdata %&gt;% filter(the_year&gt;=1437,the_year&lt;=1440,Non_Saudi_teacher==0)%&gt;%
   count(administrative_regions)%&gt;%arrange(desc(n))
+
 tdata %&gt;% filter(the_year&gt;=1437 ,the_year&lt;=1440,Saudi_teacher==0)%&gt;%count(administrative_regions)%&gt;%arrange(desc(n))</code></pre>
 <p>Comments about your answer: from ( 1437 to 1440) at least (1) saudi or non saudi teacher recruited from admin regions and the most regions recruited at least (1) teacher (alryad)</p>
 <p>The Team Member should <em>Knit, commit, and push changes to GitHub with an appropriate commit message.</em></p>
@@ -278,30 +282,32 @@ tdata %&gt;% filter(the_year&gt;=1437 ,the_year&lt;=1440,Saudi_teacher==0)%&gt;%
 <ol style="list-style-type: lower-alpha">
 <li>Saudi Arabian education is divided into different stages/levels (Al-Marhala), list the different levels showed in the data in descDEADLINE: ENDing order of frequency. (4 points)</li>
 </ol>
-<pre class="r"><code>#Add some code</code></pre>
+<pre class="rstudy_levels"><code>tdata%&gt;%arrange(desc(levels_school))</code></pre>
 <p>Comments about your answer:</p>
+<p>that we have here 140438 ( int) (n) of levels_school.</p>
 <ol start="2" style="list-style-type: lower-alpha">
 <li>Which level recruit the most teachers? (4 points)</li>
 </ol>
-<pre class="r"><code>#Add some code</code></pre>
+<pre class="rmost_teachers"><code>tdata%&gt;%count(levels_school)%&gt;%arrange(desc(n))</code></pre>
 <p>Comments about your answer:</p>
+<p>The largest level in recruitment is the primary schools and the lowest level is the continue learning, so we we should educate and qualify specialized teachers at the primary stage because it is the most imoprtant stage in teams of employment requirements and also the most important in students’ lives.</p>
 <p>The Team Member should <em>Knit, commit, and push changes to GitHub with an appropriate commit message.</em></p>
 <p>The Next Team member should <em>Pull the changes made by Team Leader before proceeding.</em></p>
 <ol start="3" style="list-style-type: lower-alpha">
 <li>Plot the graph of region versus number of <strong>Saudi</strong> teachers recruited over the period. (4 points)</li>
 </ol>
-<pre class="r"><code>#Add some code</code></pre>
-<p>Comments about your answer:</p>
+<pre class="rplot_admin_regions_saudi"><code>ggplot (data=tdata, aes (x=administrative_regions, y= Saudi_teacher)) + geom_bar (stat=&quot;identity&quot;)</code></pre>
+<p>Comments about your answer: The most number of saudi teachers has been employed in ( riyad ) and The fewest number of saudi teachers have been employed in northern borders.</p>
 <ol start="4" style="list-style-type: lower-alpha">
 <li>Plot the graph of region versus number of <strong>Non-Saudi</strong> teachers recruited over the period. (4 points)</li>
 </ol>
-<pre class="r"><code>#Add some code</code></pre>
-<p>Comments about your answer:</p>
+<pre class="{rplot_admin_regions_non-saudi}"><code>ggplot (data=tdata, aes (x=administrative_regions, y= non_Saudi_teacher)) + geom_bar (stat=&quot;identity&quot;)</code></pre>
+<p>Comments about your answer: The most number of non saudi teachers has been employed in ( riyad ) and The fewest number of saudi teachers have been employed in Albahaa</p>
 <ol start="5" style="list-style-type: lower-alpha">
 <li>Plot the graph of region versus number of <strong>all teachers</strong> recruited over the period. (4 points)</li>
 </ol>
-<pre class="r"><code>#Add some code</code></pre>
-<p>Comments about your answer:</p>
+<pre class="rplot_admin_regions_all"><code>ggplot (data=tdata, aes (x=administrative_regions, y= total_saudi_teachers)) + geom_bar (stat=&quot;identity&quot;)</code></pre>
+<p>Comments about your answer: The most number of non or saudi teachers has been employed in ( riyad ) and The fewest number of saudi teachers have been employed in northern borders</p>
 <p>The Team Member should <em>Knit, commit, and push changes to GitHub with an appropriate commit message.</em></p>
 <p></p>
 </div>
