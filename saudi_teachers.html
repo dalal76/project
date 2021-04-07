@@ -318,18 +318,19 @@ tdata %&gt;% filter(the_year&gt;=1437 ,the_year&lt;=1440,Saudi_teacher==0)%&gt;%
 <ol style="list-style-type: lower-alpha">
 <li>How many boys and how many girls schools are listed in the data? (4 points)</li>
 </ol>
-<pre class="r"><code>#Add some code</code></pre>
-<p>Comments about your answer:</p>
+<pre class="rno_boys_girls"><code>tdata%&gt;%count(sex)</code></pre>
+<p>Comments about your answer: the number of girls ’schools (77462) is more than the number of boys ’schools(62766)</p>
 <ol start="2" style="list-style-type: lower-alpha">
 <li>Between boys and girls schools, which recruit more teachers? (4 points)</li>
 </ol>
-<pre class="r"><code>#Add some code</code></pre>
+<pre class="rrecruitment_boys_girls"><code>tdata%&gt;%group_by(sex)%&gt;%summarise_at(vars(Teachers),list(sum=sum))</code></pre>
 <p>Comments about your answer:</p>
+<p>boys_schools_teachers= 954028 girls_schools_teachers= 1166895</p>
 <ol start="3" style="list-style-type: lower-alpha">
 <li>What is the correlation between recruitment at boys schools and recruitment of girls schools? (4 points)</li>
 </ol>
-<pre class="r"><code>#Add some code</code></pre>
-<p>Comments about your answer:</p>
+<pre class="rplot_correlation_boys_girls"><code> ggplot(data = tdata, aes(x=sex, y= Teachers , color = sex)) +                  geom_bar(stat = &quot;identity&quot;)</code></pre>
+<p>Comments about your answer: exceeds the teachers employed in boys’ schools , so we must focus on training and teaching teachers at higher rates to prepare them for employment in girls ’schools. the number of teachers employed in girls ’schools</p>
 <p>The Team Member should <em>Knit, commit, and push changes to GitHub with an appropriate commit message.</em></p>
 <p></p>
 </div>
