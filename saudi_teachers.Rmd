@@ -216,7 +216,7 @@ the number of girls 'schools (77462) is more than the number of boys 'schools(62
 tdata%>%group_by(sex)%>%summarise_at(vars(Teachers),list(sum=sum))
 ```
 
-Comments about your answer:
+Comments about your answer: According to the data we have, girls ’schools employ the most
 
 boys_schools_teachers= 954028
 girls_schools_teachers= 1166895

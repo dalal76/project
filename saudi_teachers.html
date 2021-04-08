@@ -324,7 +324,7 @@ tdata %&gt;% filter(the_year&gt;=1437 ,the_year&lt;=1440,Saudi_teacher==0)%&gt;%
 <li>Between boys and girls schools, which recruit more teachers? (4 points)</li>
 </ol>
 <pre class="rrecruitment_boys_girls"><code>tdata%&gt;%group_by(sex)%&gt;%summarise_at(vars(Teachers),list(sum=sum))</code></pre>
-<p>Comments about your answer:</p>
+<p>Comments about your answer: According to the data we have, girls ’schools employ the most</p>
 <p>boys_schools_teachers= 954028 girls_schools_teachers= 1166895</p>
 <ol start="3" style="list-style-type: lower-alpha">
 <li>What is the correlation between recruitment at boys schools and recruitment of girls schools? (4 points)</li>
