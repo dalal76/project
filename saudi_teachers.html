@@ -341,13 +341,16 @@ tdata %&gt;% filter(the_year&gt;=1437 ,the_year&lt;=1440,Saudi_teacher==0)%&gt;%
 <ol style="list-style-type: lower-alpha">
 <li>How many teachers are recruited each year, 1437, 1438, 1439, and 1440?</li>
 </ol>
-<pre class="r"><code>#Add some code</code></pre>
-<p>Comments about your answer:</p>
+<pre class="rteachers_per_year"><code>tdata%&gt;%group_by(the_year)%&gt;%summarise_at(vars(Teachers),list(sum=sum))</code></pre>
+<p>Comments about your answer: the total of teachers (1437) ; 540883 (1438) ; 537965 (1439) ; 525588 (1440) ; 518726</p>
 <ol start="2" style="list-style-type: lower-alpha">
 <li>Which region recruited the most teachers in each of the years under review? (4 points)</li>
 </ol>
-<pre class="r"><code>#Add some code</code></pre>
-<p>Comments about your answer:</p>
+<pre class="rteachers_per_region"><code> tdata%&gt;%select(administrative_regions,Teachers,the_year)%&gt;%filter(the_year==&quot;1437&quot;)%&gt;%group_by(administrative_regions)%&gt;%summarise_at(vars(Teachers),list(sum=sum))%&gt;%arrange(desc(sum))
+tdata%&gt;%select(administrative_regions,Teachers,the_year)%&gt;%filter(the_year==&quot;1438&quot;)%&gt;%group_by(administrative_regions)%&gt;%summarise_at(vars(Teachers),list(sum=sum))%&gt;%arrange(desc(sum))
+tdata%&gt;%select(administrative_regions,Teachers,the_year)%&gt;%filter(the_year==&quot;1439&quot;)%&gt;%group_by(administrative_regions)%&gt;%summarise_at(vars(Teachers),list(sum=sum))%&gt;%arrange(desc(sum))
+ tdata%&gt;%select(administrative_regions,Teachers,the_year)%&gt;%filter(the_year==&quot;1440&quot;)%&gt;%group_by(administrative_regions)%&gt;%summarise_at(vars(Teachers),list(sum=sum))%&gt;%arrange(desc(sum))</code></pre>
+<p>Comments about your answer: the most region recruited in 1437 is : alriyad the recruited : 130124 in 1438 is : alriyad the recruited : 127911 in 1439 is : alriyad the recruited : 123998 in 1440 is : alriyad the recruited : 121030</p>
 <ol start="3" style="list-style-type: lower-alpha">
 <li>Plot the graph of number of teachers recruited vs the number of schools in an administrative region? What type or relationship exist between the two variables? (4 points)</li>
 </ol>
